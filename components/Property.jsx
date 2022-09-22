@@ -22,46 +22,50 @@ const Property = ({
     isVerified,
     externalID,
   },
-}) => {
-  return (
-    <Link href={`/property/${externalID}`} passHref>
-      <Flex
-        flexWrap="wrap"
-        p="5"
-        w="420px"
-        paddingTop="0px"
-        justifyContent="flex-start"
-        cursor="pointer"
-      >
-        <Box>
-          <Image
-            src={coverPhoto ? coverPhoto.url : DefaultImage}
-            width={400}
-            height={260}
-            alt="house"
-          />
-        </Box>
-        <Box w="full">
-          <Flex
-            paddingTop="2"
-            alignItems="center"
-            justifyContent="space-between"
-          >
-            <Flex alignItems="center">
-              <Box paddingRight="3" color="green.400">
-                {/*If accomodation is verified then render the verified icon */}
-                {isVerified && <GoVerified />}
-              </Box>
-              <Text fontWeight="bold" fontSize="lg">
-                R {price}
-                {rentFrequency && `/${rentFrequency}`}
-              </Text>
-            </Flex>
+}) => (
+  <Link href={`/property/${externalID}`} passHref>
+    <Flex
+      flexWrap="wrap"
+      p="5"
+      w="420px"
+      paddingTop="0px"
+      justifyContent="flex-start"
+      cursor="pointer"
+    >
+      <Box>
+        <Image
+          src={coverPhoto ? coverPhoto.url : DefaultImage}
+          width={400}
+          height={260}
+          alt="house"
+        />
+      </Box>
+      <Box w="full">
+        <Flex paddingTop="2" alignItems="center" justifyContent="space-between">
+          <Flex alignItems="center">
+            <Box paddingRight="3" color="green.400">
+              {/*If accomodation is verified then render the verified icon */}
+              {isVerified && <GoVerified />}
+            </Box>
+            <Text fontWeight="bold" fontSize="lg">
+              R {price}
+              {rentFrequency && `/${rentFrequency}`}
+            </Text>
           </Flex>
-        </Box>
-      </Flex>
-    </Link>
-  );
-};
+          <Box>
+            <Avatar size="sm" src={agency?.logo?.url}></Avatar>
+          </Box>
+        </Flex>
+        <Flex>
+          {rooms}
+          <FaBed /> | {baths} <FaBath /> | {millify(area)} sqft <BsGrid />
+        </Flex>
+        <Text fontSize="lg">
+          {title.length > 30 ? title.substring(0, 30) + "..." : title}
+        </Text>
+      </Box>
+    </Flex>
+  </Link>
+);
 
 export default Property;
