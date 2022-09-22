@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Flex, Box, Text, Button } from "@chakra-ui/react";
+import Property from "../components/Property";
 
 import { baseUrl, fetchApi } from "../utils/fetchApi";
 
@@ -52,6 +53,9 @@ export default function Home({ propertiesForRent, propertiesForSale }) {
       />
       <Flex flexWrap="wrap">
         {/*Get properties we want to map over(Rent a home) and then display them here */}
+        {propertiesForRent.map((property) => (
+          <Property property={property} key={property.id} />
+        ))}
       </Flex>
       <Banner
         purpose="BUY A HOME"
@@ -65,6 +69,9 @@ export default function Home({ propertiesForRent, propertiesForSale }) {
       />
       <Flex>
         {/*Get properties we want to map over(Buy a home) and then display them here */}
+        {propertiesForSale.map((property) => (
+          <Property property={property} key={property.id} />
+        ))}
       </Flex>
     </Box>
   );
