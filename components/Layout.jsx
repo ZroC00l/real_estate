@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Box } from "@chakra-ui/react";
 import { Children } from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => (
   <>
@@ -17,7 +18,10 @@ const Layout = ({ children }) => (
         {/*Children prop is rendered here */}
         {children}
       </main>
-      <footer>{/*Footer component goes here */}</footer>
+      <footer>
+        {/*Footer component goes here */}
+        <Footer />
+      </footer>
     </Box>
   </>
 );
