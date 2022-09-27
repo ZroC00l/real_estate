@@ -53,7 +53,7 @@ const Property = ({
             </Text>
           </Flex>
           <Box>
-            <Avatar size="sm" src={agency?.logo?.url}></Avatar>
+            <Avatar size="md" src={agency?.logo?.url}></Avatar>
           </Box>
         </Flex>
         <Flex>
